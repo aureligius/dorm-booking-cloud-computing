@@ -1,0 +1,45 @@
+== Test run 2026-11-27T15:26:39Z on ip-10-16-10-110.ec2.internal ==
+### GET http://localhost:8081/health 
+{"status": "ok", "service": "room-service"}
+HTTP 200
+
+### GET http://localhost:8082/health 
+{"status": "ok", "service": "booking-service"}
+HTTP 200
+
+### GET http://localhost:8081/rooms?area=Pogung 
+[{"roomId": "room-001", "dormName": "Wisma Pogung Asri", "area": "Pogung", "roomType": "single", "pricePerMonth": 1200000, "capacity": 1}, {"roomId": "room-002", "dormName": "Wisma Pogung Asri", "area": "Pogung", "roomType": "shared", "pricePerMonth": 850000, "capacity": 2}]
+HTTP 200
+
+### POST http://localhost:8082/bookings (create)
+{"bookingId": "bkg-5d370d39", "roomId": "room-001", "dormName": "Wisma Pogung Asri", "studentName": "Test Student", "studentEmail": "student@example.com", "checkInDate": "2027-01-15", "durationMonths": 6, "totalPrice": 7200000, "status": "PENDING", "createdAt": "2026-11-27T15:26:39Z", "updatedAt": "2026-11-27T15:26:39Z"}
+HTTP 201
+
+### GET http://localhost:8082/bookings/bkg-5d370d39 
+{"bookingId": "bkg-5d370d39", "roomId": "room-001", "dormName": "Wisma Pogung Asri", "studentName": "Test Student", "studentEmail": "student@example.com", "checkInDate": "2027-01-15", "durationMonths": 6, "totalPrice": 7200000, "status": "PENDING", "createdAt": "2026-11-27T15:26:39Z", "updatedAt": "2026-11-27T15:26:39Z"}
+HTTP 200
+
+### PUT http://localhost:8082/bookings/bkg-5d370d39 {"status":"CONFIRMED"}
+{"bookingId": "bkg-5d370d39", "roomId": "room-001", "dormName": "Wisma Pogung Asri", "studentName": "Test Student", "studentEmail": "student@example.com", "checkInDate": "2027-01-15", "durationMonths": 6, "totalPrice": 7200000, "status": "CONFIRMED", "createdAt": "2026-11-27T15:26:39Z", "updatedAt": "2026-11-27T15:26:39Z"}
+HTTP 200
+
+### POST http://localhost:8082/bookings {"roomId":"room-001","studentName":"Second Student","checkInDate":"2027-01-15"}
+{"error": "room is full"}
+HTTP 409
+
+### POST http://localhost:8082/bookings {"roomId":"room-999","studentName":"X","checkInDate":"2027-01-15"}
+{"error": "room not found"}
+HTTP 404
+
+### POST http://localhost:8082/bookings {"roomId":"room-002"}
+{"error": "missing fields: studentName, checkInDate"}
+HTTP 400
+
+### DELETE http://localhost:8082/bookings/bkg-5d370d39 
+
+HTTP 204
+
+### GET http://localhost:8082/bookings/bkg-5d370d39 
+{"error": "booking not found"}
+HTTP 404
+

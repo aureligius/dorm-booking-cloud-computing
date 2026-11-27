@@ -1,0 +1,54 @@
+WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+654654349686.dkr.ecr.us-east-1.amazonaws.com/dorm-booking/room-service
+The push refers to repository [654654349686.dkr.ecr.us-east-1.amazonaws.com/dorm-booking/room-service]
+43a7941d78d9: Preparing
+0983ca332fdd: Preparing
+e09e7b842fce: Preparing
+33245a72efc0: Preparing
+c55c05421254: Preparing
+d6c38381cc85: Preparing
+75f1d9657d88: Preparing
+d6c38381cc85: Waiting
+75f1d9657d88: Waiting
+43a7941d78d9: Pushed
+33245a72efc0: Pushed
+e09e7b842fce: Pushed
+0983ca332fdd: Pushed
+d6c38381cc85: Pushed
+75f1d9657d88: Pushed
+c55c05421254: Pushed
+v1: digest: sha256:a2b0c3060d23304d343b4a936c9ce0199ead258cbeeb9b55c6c5f59dd042abe0 size: 1778
+654654349686.dkr.ecr.us-east-1.amazonaws.com/dorm-booking/booking-service
+The push refers to repository [654654349686.dkr.ecr.us-east-1.amazonaws.com/dorm-booking/booking-service]
+43a7941d78d9: Preparing
+24dd6980f1c0: Preparing
+e09e7b842fce: Preparing
+33245a72efc0: Preparing
+c55c05421254: Preparing
+d6c38381cc85: Preparing
+75f1d9657d88: Preparing
+d6c38381cc85: Waiting
+75f1d9657d88: Waiting
+24dd6980f1c0: Pushed
+e09e7b842fce: Pushed
+33245a72efc0: Pushed
+43a7941d78d9: Pushed
+d6c38381cc85: Pushed
+75f1d9657d88: Pushed
+c55c05421254: Pushed
+v1: digest: sha256:93a395b16cbf50afaeb9978c99e6fe82bb43e133a86ecfdca8efebea430bb693 size: 1778
+---------------------------------------------------
+|                 DescribeImages                  |
++-----------------------------------+-------------+
+|              pushed               |  sizeBytes  |
++-----------------------------------+-------------+
+|  2026-11-27T15:27:00.805000+00:00 |  18055487   |
++-----------------------------------+-------------+
+||                     tags                      ||
+|+-----------------------------------------------+|
+||  v1                                           ||
+|+-----------------------------------------------+|

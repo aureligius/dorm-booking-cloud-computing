@@ -1,0 +1,3 @@
+NAMES             IMAGE                    STATUS          PORTS
+booking-service   booking-service:latest   Up 21 seconds   0.0.0.0:8082->8082/tcp, :::8082->8082/tcp
+room-service      room-service:latest      Up 22 seconds   0.0.0.0:8081->8081/tcp, :::8081->8081/tcp
